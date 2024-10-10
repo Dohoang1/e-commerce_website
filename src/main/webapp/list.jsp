@@ -52,6 +52,16 @@
   </form>
 </div>
 
+<div class="date-range-form">
+  <form action="orderedProducts" method="get">
+    <label for="startDate">Từ ngày:</label>
+    <input type="date" id="startDate" name="startDate" required>
+    <label for="endDate">Đến ngày:</label>
+    <input type="date" id="endDate" name="endDate" required>
+    <button type="submit">Xem sản phẩm đã đặt hàng</button>
+  </form>
+</div>
+
 <a href="add" class="add-link">Thêm mới sản phẩm</a>
 
 <table>

@@ -92,4 +92,36 @@ public class ProductDAO {
 
         return topProducts;
     }
+
+    public List<Product> getOrderedProducts(String startDate, String endDate) {
+        List<Product> orderedProducts = new ArrayList<>();
+        String sql = "SELECT DISTINCT p.* " +
+                "FROM Product p " +
+                "JOIN OrderDetail od ON p.id = od.product_id " +
+                "JOIN `Order` o ON od.order_id = o.id " +
+                "WHERE o.orderDate BETWEEN ? AND ? " +
+                "ORDER BY p.name";
+
+        try (Connection conn = getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, startDate);
+            pstmt.setString(2, endDate);
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                Product product = new Product(
+                        rs.getInt("id"),
+                        rs.getString("name"),
+                        rs.getDouble("price"),
+                        rs.getDouble("discount"),
+                        rs.getDouble("stock")
+                );
+                orderedProducts.add(product);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return orderedProducts;
+    }
 }
