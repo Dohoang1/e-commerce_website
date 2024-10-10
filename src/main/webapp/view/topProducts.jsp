@@ -54,10 +54,10 @@
             <tr>
                 <td>${status.index + 1}</td>
                 <td>${product.name}</td>
-                <td><fmt:formatNumber value="${product.price}" type="currency" currencySymbol="VNĐ"/></td>
+                <td><fmt:formatNumber value="${product.price}" type="currency" currencySymbol="$"/></td>
                 <td>${product.discount}%</td>
                 <td>${product.stock}</td>
-                <td><fmt:formatNumber value="${product.discountedPrice}" type="currency" currencySymbol="VNĐ"/></td>
+                <td><fmt:formatNumber value="${product.discountedPrice}" type="currency" currencySymbol="$"/></td>
             </tr>
         </c:forEach>
         </tbody>
