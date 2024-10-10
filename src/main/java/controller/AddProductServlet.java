@@ -12,7 +12,7 @@ import dao.ProductDAO;
 @WebServlet("/add")
 public class AddProductServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("add.jsp").forward(request, response);
+        request.getRequestDispatcher("view/add.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -23,13 +23,13 @@ public class AddProductServlet extends HttpServlet {
 
         if (price <= 100) {
             request.setAttribute("errorMessage", "Giá phải lớn hơn 100");
-            request.getRequestDispatcher("add.jsp").forward(request, response);
+            request.getRequestDispatcher("view/add.jsp").forward(request, response);
             return;
         }
 
         if (stock <= 10) {
             request.setAttribute("errorMessage", "Tồn kho phải lớn hơn 10");
-            request.getRequestDispatcher("add.jsp").forward(request, response);
+            request.getRequestDispatcher("view/add.jsp").forward(request, response);
             return;
         }
 
@@ -42,7 +42,7 @@ public class AddProductServlet extends HttpServlet {
             response.sendRedirect("list");
         } else {
             request.setAttribute("errorMessage", "Có lỗi xảy ra khi thêm sản phẩm");
-            request.getRequestDispatcher("add.jsp").forward(request, response);
+            request.getRequestDispatcher("view/add.jsp").forward(request, response);
         }
     }
 }

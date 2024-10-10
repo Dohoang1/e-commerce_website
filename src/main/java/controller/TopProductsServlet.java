@@ -20,6 +20,6 @@ public class TopProductsServlet extends HttpServlet {
 
         request.setAttribute("topProducts", topProducts);
         request.setAttribute("limit", limit);
-        request.getRequestDispatcher("topProducts.jsp").forward(request, response);
+        request.getRequestDispatcher("view/topProducts.jsp").forward(request, response);
     }
 }

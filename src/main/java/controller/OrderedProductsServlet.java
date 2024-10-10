@@ -22,6 +22,6 @@ public class OrderedProductsServlet extends HttpServlet {
         request.setAttribute("orderedProducts", orderedProducts);
         request.setAttribute("startDate", startDate);
         request.setAttribute("endDate", endDate);
-        request.getRequestDispatcher("orderedProducts.jsp").forward(request, response);
+        request.getRequestDispatcher("view/orderedProducts.jsp").forward(request, response);
     }
 }
